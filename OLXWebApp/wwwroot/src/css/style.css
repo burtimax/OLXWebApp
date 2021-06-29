@@ -1,0 +1,52 @@
+* {
+  box-sizing: border-box;
+  font-family: "Roboto";
+}
+header {
+  background-color: #000230;
+}
+header .header-title {
+  min-height: 80px;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: white;
+}
+footer {
+  background-color: #000230;
+}
+footer .footer-title {
+  min-height: 80px;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 1rem;
+  font-weight: 700;
+  color: white;
+}
+.main-container {
+  min-height: 80vh;
+  background-color: white;
+}
+.main-container .page-title {
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+.accounts-list .account-list-item .list-item-text {
+  font-size: 1.2rem;
+}
+.accounts-list .account-list-item .list-item-text span {
+  font-weight: bold;
+}
+.accounts-list .account-list-item .list-item-delete {
+  height: inherit;
+  min-width: 3vw;
+  background-image: url("../assets/images/trash-icon.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: centers;
+  display: none;
+}
+.accounts-list .account-list-item:hover .list-item-delete {
+  display: block;
+}

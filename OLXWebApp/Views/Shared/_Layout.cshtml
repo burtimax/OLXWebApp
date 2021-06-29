@@ -1,0 +1,35 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+    @await Html.PartialAsync("MetatagsPartial")
+    @await Html.PartialAsync("CssPartial")
+
+</head>
+<body class="is-preload">
+    @await Html.PartialAsync("HeaderPartial")
+
+    @if (User.IsInRole("user"))
+    {
+        @await Html.PartialAsync("NavigationPartial");
+    }
+    <!-- Content -->
+    <div class="main-container container shadow">
+        <div class="row">
+            <div class="page-title m-4 ml-5">
+                @ViewData["PageTitle"]
+            </div>
+        </div>
+
+
+
+        @RenderBody()
+
+    </div>
+
+
+    @await Html.PartialAsync("FooterPartial")
+    <!-- Scripts -->
+    @await Html.PartialAsync("ScriptsPartial")
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
