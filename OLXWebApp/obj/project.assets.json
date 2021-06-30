@@ -2,6 +2,15 @@
   "version": 3,
   "targets": {
     ".NETCoreApp,Version=v3.1": {
+      "ExcelDataReader/3.6.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/ExcelDataReader.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/ExcelDataReader.dll": {}
+        }
+      },
       "Microsoft.AspNetCore.Html.Abstractions/2.2.0": {
         "type": "package",
         "dependencies": {
@@ -2602,6 +2611,29 @@
     }
   },
   "libraries": {
+    "ExcelDataReader/3.6.0": {
+      "sha512": "eXyxTwG7EEWpgQX3juZ2KcndqTqm/ydx9GXS2lUiMJU54U4h5eXdygRtVgINv0t60ezPWEb+lL7uM7Q+wm5BBA==",
+      "type": "package",
+      "path": "exceldatareader/3.6.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "exceldatareader.3.6.0.nupkg.sha512",
+        "exceldatareader.nuspec",
+        "lib/net20/ExcelDataReader.dll",
+        "lib/net20/ExcelDataReader.pdb",
+        "lib/net20/ExcelDataReader.xml",
+        "lib/net45/ExcelDataReader.dll",
+        "lib/net45/ExcelDataReader.pdb",
+        "lib/net45/ExcelDataReader.xml",
+        "lib/netstandard1.3/ExcelDataReader.dll",
+        "lib/netstandard1.3/ExcelDataReader.pdb",
+        "lib/netstandard1.3/ExcelDataReader.xml",
+        "lib/netstandard2.0/ExcelDataReader.dll",
+        "lib/netstandard2.0/ExcelDataReader.pdb",
+        "lib/netstandard2.0/ExcelDataReader.xml"
+      ]
+    },
     "Microsoft.AspNetCore.Html.Abstractions/2.2.0": {
       "sha512": "Y4rs5aMEXY8G7wJo5S3EEt6ltqyOTr/qOeZzfn+hw/fuQj5GppGckMY5psGLETo1U9hcT5MmAhaT5xtusM1b5g==",
       "type": "package",
@@ -8568,6 +8600,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
+      "ExcelDataReader >= 3.6.0",
       "Microsoft.EntityFrameworkCore.SqlServer >= 5.0.7",
       "Microsoft.EntityFrameworkCore.Tools >= 3.1.15",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 3.1.5"
@@ -8615,6 +8648,10 @@
     "frameworks": {
       "netcoreapp3.1": {
         "dependencies": {
+          "ExcelDataReader": {
+            "target": "Package",
+            "version": "[3.6.0, )"
+          },
           "Microsoft.EntityFrameworkCore.SqlServer": {
             "target": "Package",
             "version": "[5.0.7, )"

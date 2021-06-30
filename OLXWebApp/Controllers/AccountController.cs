@@ -37,7 +37,7 @@ namespace OLXWebApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                User user = await _context.User.FirstOrDefaultAsync(u => u.Login == model.Login && u.Password == model.Password);
+                User user = _context.Methods.GetUserByLoginPassword(model);
                 if (user != null)
                 {
                     await Authenticate(user); // аутентификация
@@ -50,7 +50,7 @@ namespace OLXWebApp.Controllers
         }
         private async Task Authenticate(User user)
         {
-            Role userRole = _context.Role.FirstOrDefaultAsync(r => r.Id == user.RoleId).Result;
+            Role userRole = _context.Methods.GetUserRole(user);
 
             if(userRole == null)
             {

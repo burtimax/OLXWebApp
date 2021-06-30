@@ -26,9 +26,9 @@ namespace OLXWebApp.Controllers
         [AllowAnonymous]
         public IActionResult Manager()
         {
-            
-            Role userRole = db.Role.FirstOrDefault(r => r.Name == "user");
-            List<User> users = db.User.Where(u=>u.RoleId == userRole.Id).ToList();
+
+            Role userRole = db.Methods.GetRole_USER();
+            List<User> users = db.Methods.GetAllUsersByRole(userRole);
             ViewBag.Users = users;
 
             ViewData["Title"] = "Авторизация";
@@ -40,28 +40,20 @@ namespace OLXWebApp.Controllers
         [HttpPost]
         public IActionResult AddAccount(LoginModel model)
         {
-            Role userRole = db.Role.FirstOrDefault(r => r.Name == "user");
-            User newUser = new User
-            {
-                Login = model.Login,
-                Password = model.Password,
-                RoleId = userRole.Id,
-            };
-            db.User.Add(newUser);
-            db.SaveChanges();
+            Role userRole = db.Methods.GetRole_USER();
+            db.Methods.AddUserByLoginModel(model, userRole);
             return RedirectToAction("Manager", "Accounts");
         }
 
         [HttpGet]
         public IActionResult DeleteAccount(int id)
         {
-            User userForDelete = db.User.Where(u => u.Id == id).FirstOrDefault();
+            User userForDelete = db.Methods.GetUserById(id);
             if (userForDelete != null)
             {
-                db.User.Remove(userForDelete);
+                db.Methods.DeleteUser(userForDelete);
             }
             
-            db.SaveChanges();
             return RedirectToAction("Manager", "Accounts");
         }
 

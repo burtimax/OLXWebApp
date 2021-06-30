@@ -13,9 +13,23 @@ namespace OLXWebApp.Database.Context
         public DbSet<Role> Role { get; set; }
         public DbSet<OLXAccount> OLXAccount { get; set; }
 
+        private IDbMethods _methods;
+        public IDbMethods Methods { 
+            get
+            {
+                if (_methods == null)
+                {
+                    _methods = new DbMethods(this);
+                }
+
+                return _methods;
+            }
+            set { _methods = value; }
+        }
+
         public ApplicationContext(DbContextOptions<ApplicationContext> options) : base(options)
         {
-            
+           
         }
     }
 }

@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using ExcelDataReader;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -29,22 +31,42 @@ namespace OLXWebApp.Controllers
             return View();
         }
 
-        public IActionResult AddOLXAccounts(OLXAccountModel account)
+        public IActionResult AddOLXAccount(OLXAccountModel account)
         {
-            User user = db.User.Where(u => u.Login == User.Identity.Name).FirstOrDefault();
+            User user = db.Methods.GetUserByLogin(User.Identity.Name);
 
-            if (db.OLXAccount.Where(a => a.Login == account.Login).FirstOrDefault() == null)
+            db.Methods.AddOLXAccountIfNeed(account, user);
+
+            return RedirectToAction("Accounts", "User");
+        }
+
+        public IActionResult AddOLXAccountsFromExcelFile(IFormFile file)
+        {
+            if (file.FileName.EndsWith(".xls") == false && file.FileName.EndsWith(".xlsx") == false) 
             {
-                OLXAccount newAccount = new OLXAccount()
+                return RedirectToAction("Accounts", "User");
+            }
+
+            MemoryStream ms = new MemoryStream();
+            file.CopyTo(ms);
+
+            using (var reader = ExcelReaderFactory.CreateReader(ms))
+            {
+                User user = db.Methods.GetUserByLogin(User.Identity.Name);
+                reader.Read(); // Заголовок прочитываем
+                while (reader.Read()) //Each row of the file
                 {
-                    Login = account.Login,
-                    Password = account.Password,
-                    Name = account.Name,
-                    Phone = account.Phone,
-                    UserOwnerId = user.Id,
-                };
-                db.OLXAccount.Add(newAccount);
-                db.SaveChanges();
+                    OLXAccountModel model = new OLXAccountModel()
+                    {
+                        Login = reader.GetValue(0).ToString(),
+                        Password = reader.GetValue(1).ToString(),
+                        Name = reader.GetValue(2).ToString(),
+                        Phone = reader.GetValue(3).ToString(),
+
+                    };
+
+                    db.Methods.AddOLXAccountIfNeed(model, user);
+                }
             }
 
             return RedirectToAction("Accounts", "User");
@@ -54,13 +76,12 @@ namespace OLXWebApp.Controllers
         [HttpGet]
         public IActionResult DeleteOLXAccount(int id)
         {
-            OLXAccount delAcc = db.OLXAccount.Where(u => u.Id == id).FirstOrDefault();
+            OLXAccount delAcc = db.Methods.GetOLXAccountById(id);
             if (delAcc != null)
             {
-                db.OLXAccount.Remove(delAcc);
+               db.Methods.DeleteOLXAccount(delAcc);
             }
 
-            db.SaveChanges();
             return RedirectToAction("Accounts", "User");
         }
 
