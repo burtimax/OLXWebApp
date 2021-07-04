@@ -1,0 +1,94 @@
+//Данные об аккаунте
+*OXLAccount
+	int Id (PK)
+	string Login
+	string Password
+	string Name
+	string Phone
+	string User UserOwnerId (FK)
+	datetime CreateTime 
+
+//Данные авторизации аккаунта
+*OXLAccountAuthData
+	int Id (PK)
+	OXLAccount OLXAccountId (FK)
+	string ClientId
+	string ClientSecret
+	string AccessToken
+	datetime AccessTokenChange
+	int ExpiresIn
+	string TokenType (def "bearer")
+	string Scope (def "v2 read write")
+	string RefreshToken
+	datetime RefreshTokenChange
+	datetime CreateTime
+
+//Прокси список
+*Proxy
+	int Id (PK)
+	string Value ({proxy:port} or {proxy:port:login:password})
+	string Status (active, error, deleted)
+
+//Соответствия прокси и аккаунта
+*ProxyOLXAccount
+	int OLXAccountId 
+	int ProxyId
+
+//Роли на сайте
+*Role 
+	int Id (PK)
+	string Name
+
+//Пользователь на сайте
+*User 
+	int Id (PK)
+	string Login
+	string Password
+	int RoleId (FK)
+
+//Фотографии объявлений
+*Photo
+	int Id (PK)
+	string Filename
+
+//Города 
+*City
+	int Id (PK)
+	int RegionId
+	string Name
+	string Municipality
+	
+
+//Группа объявлений
+*GroupAds
+	int Id (PK)
+	string Name 
+	string Photos (строка с идшниками фотографий которые принадлежат группе объявлений)
+	string Cities (строка со списком городов, где можно будет публиковать объявления)
+	datetime CreateTime
+	string Status (stopped, active, deleted)
+	int OwnerOLXAccountId (FK OXLAccountId)
+
+//Объявление	
+*Ad
+	int Id (PK)
+	int OwnerGroupAdsId (FK GroupAds)
+	string Title
+	string Description
+	int PhotoCount (кол-во фотографий)
+	string Photos (список идшников через запятую)
+	int CityId (FK City)
+	string Status (stopped, active, deleted)
+	datetime CreateTime 
+
+//атрибуты объявления
+*AdAttributes
+	int Id (PK)
+	int OwnerAdId (FK Ad)
+	string AttributeName
+	string AttributeValue
+	
+
+	
+
+	
