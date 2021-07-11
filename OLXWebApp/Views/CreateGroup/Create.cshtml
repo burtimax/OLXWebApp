@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewData["Title"] = "Создание группы объявлений";
+    ViewData["PageTitle"] = "Создание группы объявлений";
+}
+
+<h1>Create</h1>
+
+
+<div>
+    <form asp-action="AddGroup" asp-controller="CreateGroup" asp-anti-forgery="true" method="post" enctype="multipart/form-data">
+
+
+        <div class="validation" asp-validation-summary="ModelOnly"></div>
+        
+        <div class="container">
+            <div class="row">
+                <div class="form-group col">
+                    <input class="form-control" type="text" name="GroupName" placeholder="Название группы объявлений" />
+                </div>
+            </div>
+            <div class="row">
+                <span>Добавить фотографии</span><input type="file" name="Photos" multiple />
+            </div>
+
+            <div class="row">
+                <span>Excel файл</span><input type="file" name="ExcelData"/>
+            </div>
+            <input type="submit" value="Отправить" />
+        </div>
+    </form>
+</div>
