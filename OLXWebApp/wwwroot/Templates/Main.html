@@ -46,8 +46,11 @@
         <div class="RENDER">
 
             
-          
-
+         <div class="container border-primary border rounded"></div> 
+            <form asp-controller="User" asp-action="AddOLXAccountsFromExcelFile" method="post" enctype="multipart/form-data">
+                <input type="file" name="file" />
+                <input type="submit" value="Загрузить" />
+            </form>
         </div>
         
 

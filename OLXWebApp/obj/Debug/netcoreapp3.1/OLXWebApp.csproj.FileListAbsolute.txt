@@ -159,3 +159,7 @@ D:\Programming\VisualStudioProjects\ASP.NET Core\OLXProject\OLXWebApp\OLXWebApp\
 D:\Programming\VisualStudioProjects\ASP.NET Core\OLXProject\OLXWebApp\OLXWebApp\bin\Debug\netcoreapp3.1\ExcelDataReader.dll
 D:\Programming\VisualStudioProjects\ASP.NET Core\OLXProject\OLXWebApp\OLXWebApp\obj\Debug\netcoreapp3.1\OLXWebApp.MvcApplicationPartsAssemblyInfo.cache
 D:\Programming\VisualStudioProjects\ASP.NET Core\OLXProject\OLXWebApp\OLXWebApp\obj\Debug\netcoreapp3.1\Razor\Views\CreateGroup\Create.cshtml.g.cs
+D:\Programming\VisualStudioProjects\ASP.NET Core\OLXProject\OLXWebApp\OLXWebApp\obj\Debug\netcoreapp3.1\Razor\Views\User\Accounts - Copy.cshtml.g.cs
+D:\Programming\VisualStudioProjects\ASP.NET Core\OLXProject\OLXWebApp\OLXWebApp\obj\Debug\netcoreapp3.1\Razor\Views\Account\Register - Copy.cshtml.g.cs
+D:\Programming\VisualStudioProjects\ASP.NET Core\OLXProject\OLXWebApp\OLXWebApp\obj\Debug\netcoreapp3.1\Razor\Views\Account\Login - Copy.cshtml.g.cs
+D:\Programming\VisualStudioProjects\ASP.NET Core\OLXProject\OLXWebApp\OLXWebApp\obj\Debug\netcoreapp3.1\Razor\Views\User\Accounts - Copy (2).cshtml.g.cs

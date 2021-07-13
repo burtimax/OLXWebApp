@@ -1,53 +1,255 @@
-﻿@model OLXAccountModel
-@{
-    ViewData["Title"] = "Accounts";
+﻿@{
+    ViewData["Title"] = "Главная страница";
+    ViewData["PageTitle"] = "Главная страница пользователя (пока пустая)";
 }
 
-<div>
-    <form asp-action="AddOLXAccount" asp-controller="User" asp-anti-forgery="true">
-        <div class="validation" asp-validation-summary="ModelOnly"></div>
-        <div class="container">
-            <div class="row">
-                <div class="form-group col-2">
-                    <input class="form-control" type="text" asp-for="Login" placeholder="Логин" />
-                    <span asp-validation-for="Login" />
-                </div>
-                <div class="form-group col-2">
-                    <input class="form-control" asp-for="Password" placeholder="Пароль" />
-                    <span asp-validation-for="Password" />
-                </div>
-                <div class="form-group col-2">
-                    <input class="form-control" type="text" asp-for="Name" placeholder="Имя" />
-                    <span asp-validation-for="Name" />
-                </div>
-                <div class="form-group col-2">
-                    <input class="form-control" asp-for="Phone" placeholder="Телефон" />
-                    <span asp-validation-for="Phone" />
-                </div>
-                <div class="form-group col-2">
-                    <input type="submit" value="Добавить аккаунт" class="btn btn-primary" />
-                </div>
-            </div>
-        </div>
-    </form>
-</div>
+    <main>
 
-<form asp-controller="User" asp-action="AddOLXAccountsFromExcelFile" method="post" enctype="multipart/form-data">
-    <input type="file" name="file" />
-    <input type="submit" value="Import" />
-</form>
+        <!--<section class="home_main">-->
+        <header class="nav">
+            <section class="connect_account">
+                <p>Подключено 5 аккаунтов</p>
+                <img alt="human" src="~/src/assets/images/icon_human.png" class="icon_human" />
+            </section>
+            <img alt="logo" src="~/src/assets/images/LOGO.png" class="settings_logo" />
+            <section class="icons">
+                <img alt="home" src="~/src/assets/images/home.png" class="icon" />
+                <img alt="settings" src="~/src/assets/images/settings.png" class="icon" />
+                <img alt="message" src="~/src/assets/images/message.png" class="icon_message" />
+                <img alt="exit" src="~/src/assets/images/exit.png" class="icon_exit" />
+            </section>
+        </header>
+        <!--<section class="home_content">
+        <section class="main_text">
+            <p class="main_title">Создай быстро и качественно объявления на нашем сайте!</p>
+            <p class="description">На нашем сайте ты можешь создать быстрые объявление в один клик.</p>
+            <btn class="download_btn">Загрузить объявления</btn>
+        </section>
+        <section class="contact_icons">
+            <img src="~/src/assets/images/facebook.png" alt="facebook" class="contact_icon_size" />
+            <img src="~/src/assets/images/twitter.png" alt="twitter" class="contact_icon_size" />
+            <img src="~/src/assets/images/telegram.png" alt="telegram" class="contact_icon_size" />
+        </section>
+    </section>
+    <img src="~/src/assets/images/arrow_down.png" alt="arrow-down" class="arrow_down" -->
+        <!--</section>-->
 
-<div class="accounts-list container mt-3 mb-5">
-    @foreach (var user in ViewBag.Accounts)
-    {
-        <div class="account-list-item shadow m-1 p-3 border border-primary rounded row">
-            <div class="list-item-text col"><span>Login: </span>@user.Login</div>
-            <div class="list-item-text col"><span>Password: </span>@user.Password</div>
-            <div class="list-item-text col"><span>Name: </span>@user.Name</div>
-            <div class="list-item-text col"><span>Phone: </span>@user.Phone</div>
-            <a class="list-item-delete" href="/User/DeleteOLXAccount?id=@user.Id" id="account-@user.Id"></a>
-        </div>
-    }
 
-</div>
 
+        <section class="accounts">
+            <section class="squares">
+                <section class="square_left_home"></section>
+                <section class="square_home"></section>
+            </section>
+            <section class="table_box">
+                <p class="connected_acc">подключены аккаунты</p>
+                <table class="table color_white">
+                    <tr>
+                        <th class="log_in_title">Логин</th>
+                        <th>Пароль</th>
+                        <th>Имя</th>
+                        <th>Телефон</th>
+                    </tr>
+                    @foreach (var user in ViewBag.Accounts)
+                    {
+                        <tr>
+                            <td>
+                                <label>
+                                    <input type="checkbox" />
+                                </label>
+                                @user.Login
+                            </td>
+                            <td>
+                                @user.Password
+                            </td>
+                            <td>@user.Name</td>
+                            <td>@user.Phone</td>
+                        </tr>
+                    }
+                </table>
+                <!--<section class="add_delete_btn">
+                    <button class="add_btn">
+                        Добавить аккаунт <img src="~/src/assets/images/plus_black.png" alt="plus"
+                                              class="icon_btn">
+                    </button>
+                    <button class="exit_btn">
+                        Удалить аккаунт <img src="~/src/assets/images/exit_white.png" alt="exit"
+                                             class="icon_btn">
+                    </button>
+                </section>
+                <form class="add_new_form">
+                    <table>
+                        <tr class="tr_titles">
+                            <th class="log_in_sec">Логин</th>
+                            <th class="pass_sec">Пароль</th>
+                            <th class="name_sec">Имя</th>
+                            <th class="tele_sec">Телефон</th>
+                            <img src="~/src/assets/images/orange_plus.png" alt="plus" class="orange_plus" />
+                        </tr>
+                        <tr>
+                            <td>
+                                <label class="first_inputs">
+                                    <input type="checkbox" />
+                                    <input type="text" value="tum.pinjkloprtl@gmail.com" class="enter_inputs" />
+                                </label>
+                            </td>
+                            <td>
+                                <label>
+                                    <input type="text" value="myPassword123" class="enter_inputs" />
+                                </label>
+                            </td>
+                            <td>
+                                <input type="text" value="Paul" class="enter_inputs" />
+                            </td>
+                            <td>
+                                <input type="text" value="+790 587 662 28" class="enter_inputs" />
+                            </td>
+                        </tr>
+                    </table>
+                    <button class="home_add_btn">Добавить</button>
+                </form>
+                <!--<section class="add_delete_btn">-->
+            </section>
+        </section>
+        <section class="download_file_box" id="height_params">
+            <form class="download_file_form" id="parameter">
+                <p class="download_title">Загрузить объявления</p>
+                <section class="box_1">
+                    <p>Заголовок</p>
+                    <input type="text" class="input_1" name="Title"/>
+                </section>
+                <section class="box_1">
+                    <p>Описание</p>
+                    <input type="text" class="input_1 desc_field" name="Description"/>
+                </section>
+                <section class="box_1">
+                    <p>Параметры товара</p>
+                    <input type="text" class="input_1 param_goods" name="ParamsString"/>
+                </section>
+                <section class="box_1">
+                    <p>Город</p>
+                    <input type="text" class="input_1" name="City"/>
+                </section>
+                <section class="box_5">
+                    <section id="file_btn" onclick="getFile()">
+                        <p>Фото</p>
+                        <section class="right_clip">
+                            <img src="~/src/assets/images/clip.png" class="clip" />
+                        </section>
+                    </section>
+                    <section style='height: 0px;width: 0px; overflow:hidden;'>
+                        <input id="upfile" type="file" value="upload" onchange="sub(this)" multiple name="photos" />
+                    </section>
+                </section>
+                <input type="checkbox" id="hidden-checker" />
+                <section class="box_1 parameter_btn block" onclick="change_height()">
+                    <label class="block-toggler" for="hidden-checker"></label>
+                    <p class="parameter_text">Дополнительные параметры</p>
+                    <img src="~/src/assets/images/chevron_big_down.png" alt="chevron" class="chevron">
+                </section>
+
+                <section class="other_parameters hidden-block">
+                    <section class="category_input dropbtn" style="margin-left: 1vw" onclick="dropBtn()">
+                        <p>Категория</p>
+                        <section class="right_clip" style="border-left: 0">
+                            <img src="~/src/assets/images/chevron_big_down.png" class="chevron" />
+                        </section>
+                    </section>
+
+                    <div id="myDropdown" class="dropdown-content">
+                        <a href="#">Електроника</a>
+                        <a href="#">Транспорт</a>
+                        <a href="#">Обмен</a>
+                    </div>
+
+                    <section class="box_1" style="margin-left: 1vw">
+                        <p>Цена</p>
+                        <input type="text" class="input_1" />
+                    </section>
+
+                    <section class="box_1" style="margin-left: 1vw">
+                        <p>Валюта</p>
+                        <section class="money">
+                            <section class="input_1 money_input dropbtn1" style="font-size: .73vw" onclick="dropBtn1()">
+                            </section>
+                            <section class="right_clip" style="border-left: 0">
+                                <img src="~/src/assets/images/chevron_big_down.png" class="chevron money_chevron">
+                            </section>
+                        </section>
+                    </section>
+
+                    <div id="myDropdown1" class="dropdown-content1">
+                        <a href="#">Грн</a>
+                        <a href="#">Руб</a>
+                        <a href="#">Доллар</a>
+                    </div>
+
+                    <section class="box_1" style="margin-left: 1vw">
+                        <p>Состояние</p>
+                        <section class="money">
+                            <section class="input_1 money_input dropbtn2" style="font-size: .73vw" onclick="dropBtn2()">
+                            </section>
+                            <section class="right_clip" style="border-left: 0">
+                                <img src="~/src/assets/images/chevron_big_down.png" class="chevron money_chevron">
+                            </section>
+                        </section>
+                    </section>
+
+                    <div id="myDropdown2" class="dropdown-content2">
+                        <a href="#">Новый</a>
+                        <a href="#">Б/У</a>
+                    </div>
+
+                    <section class="box_1" style="margin-left: 1vw">
+                        <p>Часное лицо/Бизнес</p>
+                        <section class="money">
+                            <section class="input_1 money_input dropbtn3" style="font-size: .73vw" onclick="dropBtn3()">
+                            </section>
+                            <section class="right_clip" style="border-left: 0">
+                                <img src="~/src/assets/images/chevron_big_down.png" class="chevron money_chevron">
+                            </section>
+                        </section>
+                    </section>
+
+                    <div id="myDropdown3" class="dropdown-content3">
+                        <a href="#">Часное лицо</a>
+                        <a href="#">Бизнес</a>
+                    </div>
+
+                    <section class="box_1" style="margin-left: 1vw">
+                        <p>Местоположение</p>
+                        <section class="money">
+                            <section class="input_1 money_input dropbtn4" style="font-size: .73vw" onclick="dropBtn4()">
+                            </section>
+                            <section class="right_clip" style="border-left: 0">
+                                <img src="~/src/assets/images/chevron_big_down.png" class="chevron money_chevron">
+                            </section>
+                        </section>
+                    </section>
+
+                    <div id="myDropdown4" class="dropdown-content4">
+                        <a href="#">Киев</a>
+                        <a href="#">Львов</a>
+                        <a href="#">Одесса</a>
+                    </div>
+                </section>
+                <button class="down_btn">
+                    <p>Загрузить</p>
+                </button>
+            </form>
+        </section>
+        <footer>
+            <img src="~/src/assets/images/LOGO.png" alt="logo" class="footer_logo" />
+            <section class="footer_text">
+                <p>Настройки</p>
+                <p>Сообщение</p>
+                <p>Добавить акаунт</p>
+                <p>Загрузить объявления</p>
+            </section>
+            <section class="footer_icons">
+                <img src="~/src/assets/images/facebook.png" alt="facebook" class="footer_icon_size" />
+                <img src="~/src/assets/images/twitter.png" alt="twitter" class="footer_icon_size" />
+                <img src="~/src/assets/images/telegram.png" alt="telegram" class="footer_icon_size" />
+            </section>
+        </footer>
+    </main>
