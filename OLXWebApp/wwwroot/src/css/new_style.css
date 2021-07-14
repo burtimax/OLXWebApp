@@ -1246,3 +1246,14 @@ body {
 .bg_blue {
     background: #6495ed;
 }
+
+.select_dropdown {
+    width: 100%;
+    margin: 10px 0;
+    padding: 3px 0;
+
+}
+
+option {
+    color: black;
+}

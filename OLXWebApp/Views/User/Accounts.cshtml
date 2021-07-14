@@ -67,7 +67,7 @@
                         </tr>
                     }
                 </table>
-                <!--<section class="add_delete_btn">
+                @*<section class="add_delete_btn">
                     <button class="add_btn">
                         Добавить аккаунт <img src="~/src/assets/images/plus_black.png" alt="plus"
                                               class="icon_btn">
@@ -76,8 +76,8 @@
                         Удалить аккаунт <img src="~/src/assets/images/exit_white.png" alt="exit"
                                              class="icon_btn">
                     </button>
-                </section>
-                <form class="add_new_form">
+                </section>*@
+                <form class="add_new_form" method="POST" asp-action="AddOLXAccount" asp-controller="User">
                     <table>
                         <tr class="tr_titles">
                             <th class="log_in_sec">Логин</th>
@@ -89,20 +89,20 @@
                         <tr>
                             <td>
                                 <label class="first_inputs">
-                                    <input type="checkbox" />
-                                    <input type="text" value="tum.pinjkloprtl@gmail.com" class="enter_inputs" />
+                                    <!--<input type="checkbox" />-->
+                                    <input type="text" name="Login" class="enter_inputs" />
                                 </label>
                             </td>
                             <td>
                                 <label>
-                                    <input type="text" value="myPassword123" class="enter_inputs" />
+                                    <input type="text" name="Password" class="enter_inputs" />
                                 </label>
                             </td>
                             <td>
-                                <input type="text" value="Paul" class="enter_inputs" />
+                                <input type="text" name="Name" class="enter_inputs" />
                             </td>
                             <td>
-                                <input type="text" value="+790 587 662 28" class="enter_inputs" />
+                                <input type="text" name="Phone" class="enter_inputs" />
                             </td>
                         </tr>
                     </table>
@@ -149,50 +149,38 @@
                 </section>
 
                 <section class="other_parameters hidden-block">
-                    <section class="category_input dropbtn" style="margin-left: 1vw" onclick="dropBtn()">
+                    <section class="box_1" style="margin-left: 1vw">
                         <p>Категория</p>
-                        <section class="right_clip" style="border-left: 0">
-                            <img src="~/src/assets/images/chevron_big_down.png" class="chevron" />
-                        </section>
+                        <select class="input_1" name="Category">
+                            <option value="1">Электроника</option>
+                            <option value="2">Недвижимость</option>
+                            <option value="3">Обмен</option>
+                        </select>
                     </section>
 
-                    <div id="myDropdown" class="dropdown-content">
-                        <a href="#">Електроника</a>
-                        <a href="#">Транспорт</a>
-                        <a href="#">Обмен</a>
-                    </div>
+
 
                     <section class="box_1" style="margin-left: 1vw">
                         <p>Цена</p>
-                        <input type="text" class="input_1" />
+                        <input type="text" class="input_1" name="Price" />
                     </section>
 
                     <section class="box_1" style="margin-left: 1vw">
                         <p>Валюта</p>
-                        <section class="money">
-                            <section class="input_1 money_input dropbtn1" style="font-size: .73vw" onclick="dropBtn1()">
-                            </section>
-                            <section class="right_clip" style="border-left: 0">
-                                <img src="~/src/assets/images/chevron_big_down.png" class="chevron money_chevron">
-                            </section>
-                        </section>
+                        <select class="input_1" name="Currency">
+                            <option value="Grn">Грн</option>
+                            <option value="Rub">Руб</option>
+                            <option value="Dol">Доллар</option>
+                        </select>
                     </section>
 
-                    <div id="myDropdown1" class="dropdown-content1">
-                        <a href="#">Грн</a>
-                        <a href="#">Руб</a>
-                        <a href="#">Доллар</a>
-                    </div>
 
                     <section class="box_1" style="margin-left: 1vw">
                         <p>Состояние</p>
-                        <section class="money">
-                            <section class="input_1 money_input dropbtn2" style="font-size: .73vw" onclick="dropBtn2()">
-                            </section>
-                            <section class="right_clip" style="border-left: 0">
-                                <img src="~/src/assets/images/chevron_big_down.png" class="chevron money_chevron">
-                            </section>
-                        </section>
+                        <select class="input_1" name="GoodState">
+                            <option value="New">Новый</option>
+                            <option value="Used">Б/У</option>
+                        </select>
                     </section>
 
                     <div id="myDropdown2" class="dropdown-content2">
@@ -202,36 +190,25 @@
 
                     <section class="box_1" style="margin-left: 1vw">
                         <p>Часное лицо/Бизнес</p>
-                        <section class="money">
-                            <section class="input_1 money_input dropbtn3" style="font-size: .73vw" onclick="dropBtn3()">
-                            </section>
-                            <section class="right_clip" style="border-left: 0">
-                                <img src="~/src/assets/images/chevron_big_down.png" class="chevron money_chevron">
-                            </section>
-                        </section>
+                        <select class="input_1" name="Face">
+                            <option value="Person">Частное лицо</option>
+                            <option value="Business">Бизнес</option>
+                        </select>
                     </section>
 
-                    <div id="myDropdown3" class="dropdown-content3">
-                        <a href="#">Часное лицо</a>
-                        <a href="#">Бизнес</a>
-                    </div>
+
+
 
                     <section class="box_1" style="margin-left: 1vw">
                         <p>Местоположение</p>
-                        <section class="money">
-                            <section class="input_1 money_input dropbtn4" style="font-size: .73vw" onclick="dropBtn4()">
-                            </section>
-                            <section class="right_clip" style="border-left: 0">
-                                <img src="~/src/assets/images/chevron_big_down.png" class="chevron money_chevron">
-                            </section>
-                        </section>
+                        <select class="input_1" name="Place">
+                            <option value="1">Киев</option>
+                            <option value="2">Львов</option>
+                            <option value="2">Одесса</option>
+                        </select>
                     </section>
 
-                    <div id="myDropdown4" class="dropdown-content4">
-                        <a href="#">Киев</a>
-                        <a href="#">Львов</a>
-                        <a href="#">Одесса</a>
-                    </div>
+
                 </section>
                 <button class="down_btn">
                     <p>Загрузить</p>
@@ -253,3 +230,4 @@
             </section>
         </footer>
     </main>
+

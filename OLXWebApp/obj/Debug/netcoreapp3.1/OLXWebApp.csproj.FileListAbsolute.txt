@@ -1,8 +1,6 @@
 D:\Programming\VisualStudioProjects\ASP.NET Core\OLXProject\OLXWebApp\OLXWebApp\bin\Debug\netcoreapp3.1\appsettings.Development.json
 D:\Programming\VisualStudioProjects\ASP.NET Core\OLXProject\OLXWebApp\OLXWebApp\bin\Debug\netcoreapp3.1\appsettings.json
-D:\Programming\VisualStudioProjects\ASP.NET Core\OLXProject\OLXWebApp\OLXWebApp\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
 D:\Programming\VisualStudioProjects\ASP.NET Core\OLXProject\OLXWebApp\OLXWebApp\bin\Debug\netcoreapp3.1\OLXWebApp.exe
-D:\Programming\VisualStudioProjects\ASP.NET Core\OLXProject\OLXWebApp\OLXWebApp\obj\Debug\netcoreapp3.1\OLXWebApp.csprojAssemblyReference.cache
 D:\Programming\VisualStudioProjects\ASP.NET Core\OLXProject\OLXWebApp\OLXWebApp\obj\Debug\netcoreapp3.1\OLXWebApp.RazorAssemblyInfo.cache
 D:\Programming\VisualStudioProjects\ASP.NET Core\OLXProject\OLXWebApp\OLXWebApp\obj\Debug\netcoreapp3.1\OLXWebApp.RazorAssemblyInfo.cs
 D:\Programming\VisualStudioProjects\ASP.NET Core\OLXProject\OLXWebApp\OLXWebApp\obj\Debug\netcoreapp3.1\OLXWebApp.AssemblyInfoInputs.cache
@@ -163,3 +161,8 @@ D:\Programming\VisualStudioProjects\ASP.NET Core\OLXProject\OLXWebApp\OLXWebApp\
 D:\Programming\VisualStudioProjects\ASP.NET Core\OLXProject\OLXWebApp\OLXWebApp\obj\Debug\netcoreapp3.1\Razor\Views\Account\Register - Copy.cshtml.g.cs
 D:\Programming\VisualStudioProjects\ASP.NET Core\OLXProject\OLXWebApp\OLXWebApp\obj\Debug\netcoreapp3.1\Razor\Views\Account\Login - Copy.cshtml.g.cs
 D:\Programming\VisualStudioProjects\ASP.NET Core\OLXProject\OLXWebApp\OLXWebApp\obj\Debug\netcoreapp3.1\Razor\Views\User\Accounts - Copy (2).cshtml.g.cs
+D:\Programming\VisualStudioProjects\ASP.NET Core\OLXProject\OLXWebApp\OLXWebApp\obj\Debug\netcoreapp3.1\OLXWebApp.csproj.AssemblyReference.cache
+D:\Programming\VisualStudioProjects\ASP.NET Core\OLXProject\OLXWebApp\OLXWebApp\obj\Debug\netcoreapp3.1\OLXWebApp.csproj.CoreCompileInputs.cache
+D:\Programming\VisualStudioProjects\ASP.NET Core\OLXProject\OLXWebApp\OLXWebApp\obj\Debug\netcoreapp3.1\scopedcss\bundle\OLXWebApp.styles.css
+D:\Programming\VisualStudioProjects\ASP.NET Core\OLXProject\OLXWebApp\OLXWebApp\obj\Debug\netcoreapp3.1\Razor\Views\User\Settings.cshtml.g.cs
+D:\Programming\VisualStudioProjects\ASP.NET Core\OLXProject\OLXWebApp\OLXWebApp\obj\Debug\netcoreapp3.1\OLXWebApp.genruntimeconfig.cache

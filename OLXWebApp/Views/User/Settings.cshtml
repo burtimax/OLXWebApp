@@ -1,0 +1,108 @@
+﻿@{
+    ViewData["Title"] = "Главная страница";
+    ViewData["PageTitle"] = "Главная страница пользователя (пока пустая)";
+}
+
+<main>
+
+    <!--<section class="home_main">-->
+    <header class="nav">
+        <section class="connect_account">
+            <p>Подключено 5 аккаунтов</p>
+            <img alt="human" src="~/src/assets/images/icon_human.png" class="icon_human" />
+        </section>
+        <img alt="logo" src="~/src/assets/images/LOGO.png" class="settings_logo" />
+        <section class="icons">
+            <img alt="home" src="~/src/assets/images/home.png" class="icon" />
+            <img alt="settings" src="~/src/assets/images/settings.png" class="icon" />
+            <img alt="message" src="~/src/assets/images/message.png" class="icon_message" />
+            <img alt="exit" src="~/src/assets/images/exit.png" class="icon_exit" />
+        </section>
+    </header>
+    <!--<section class="home_content">
+        <section class="main_text">
+            <p class="main_title">Создай быстро и качественно объявления на нашем сайте!</p>
+            <p class="description">На нашем сайте ты можешь создать быстрые объявление в один клик.</p>
+            <btn class="download_btn">Загрузить объявления</btn>
+        </section>
+        <section class="contact_icons">
+            <img src="~/src/assets/images/facebook.png" alt="facebook" class="contact_icon_size" />
+            <img src="~/src/assets/images/twitter.png" alt="twitter" class="contact_icon_size" />
+            <img src="~/src/assets/images/telegram.png" alt="telegram" class="contact_icon_size" />
+        </section>
+    </section>
+    <img src="~/src/assets/images/arrow_down.png" alt="arrow-down" class="arrow_down" -->
+    <!--</section>-->
+
+
+
+    <form class="settings_form">
+        <p class="settings_text">Настройки</p>
+        <section class="settings_fields">
+            <section class="box">
+                <p>Логин:</p>
+                <input type="email" value="@ViewBag.User.Login" class="field" />
+            </section>
+            <section class="box">
+                <p>Пароль:</p>
+                <input type="password" value="@ViewBag.User.Password" class="field pass_field" />
+                <img alt="eye" src="~/src/assets/images/eye.png" class="eye" />
+            </section>
+            <section class="box">
+                <p>Имя:</p>
+                <input type="text" value="Ira" class="field" />
+            </section>
+            <section class="box">
+                <p>Телефон:</p>
+                <input type="text" value="+790 517 672 23" class="field" />
+            </section>
+            <section class="box box_fl-st">
+                <p>Подключено аккаунтов:</p>
+                <input type="text" value="@ViewBag.Accounts.Count()" class="field count_acc" />
+            </section>
+            <section class="box box_fl-st">
+                <p>Загружено объявлений:</p>
+                <input type="text" value="12" class="field count_adv" />
+            </section>
+            <section class="box">
+                <p>Прокси1:</p>
+                <input type="text" value="190.93.176.11:8080" class="field" />
+            </section>
+            <section class="box">
+                <p>Ключ для reCAPTCHA:</p>
+                <input type="text" value="6Le5-c0SAAAAAHXM3sIrsXBlRh" class="field" />
+            </section>
+
+            <section class="box proxy_box">
+                <section class="proxy_block">
+                    <input type="text" class="proxy" />
+                    <img alt="plus" src="~/src/assets/images/plus.png" class="plus_btn" />
+                </section>
+                <btn class="proxy_btn">Загрузить прокси</btn>
+            </section>
+
+            <section class="box captcha_box">
+                <input type="text" class="proxy" />
+                <btn class="proxy_btn captcha_btn">Вставить ключ для reCAPTCHA</btn>
+            </section>
+        </section>
+        <btn class="save_btn">Сохранить</btn>
+    </form>
+    <section class="square"></section>
+
+    <footer>
+        <img src="~/src/assets/images/LOGO.png" alt="logo" class="footer_logo" />
+        <section class="footer_text">
+            <p>Настройки</p>
+            <p>Сообщение</p>
+            <p>Добавить акаунт</p>
+            <p>Загрузить объявления</p>
+        </section>
+        <section class="footer_icons">
+            <img src="~/src/assets/images/facebook.png" alt="facebook" class="footer_icon_size" />
+            <img src="~/src/assets/images/twitter.png" alt="twitter" class="footer_icon_size" />
+            <img src="~/src/assets/images/telegram.png" alt="telegram" class="footer_icon_size" />
+        </section>
+    </footer>
+</main>
+

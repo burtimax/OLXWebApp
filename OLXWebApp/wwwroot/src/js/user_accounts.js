@@ -165,3 +165,21 @@ window.onclick = function (event) {
     }
 }
 
+/*let $newUserForm = $(".add_new_form");
+let tmpFormData = null;
+$newUserForm.submit(function (event) {
+    event.preventDefault();
+    tmpFormData = new FormData($newUserForm);
+    let response = await fetch('/article/formdata/post/user',
+        {
+            method: 'POST',
+            body: tmpFormData
+        }).then(
+        function(response) {
+            $('.table').append("")
+        });
+   
+
+    let result = await response.json();
+});*/
+
