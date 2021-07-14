@@ -42,7 +42,7 @@ namespace OLXWebApp.Controllers
                 {
                     await Authenticate(user); // аутентификация
                    
-                    return RedirectToAction("Accounts", "User");
+                    return RedirectToAction("Index", "Home");
                 }
                 ModelState.AddModelError("", "Некорректные логин и(или) пароль");
             }

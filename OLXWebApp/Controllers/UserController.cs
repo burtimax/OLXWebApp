@@ -28,7 +28,6 @@ namespace OLXWebApp.Controllers
             User user = db.User.Where(u => u.Login == User.Identity.Name).FirstOrDefault();
             var accounts = db.OLXAccount.Where(a => a.UserOwnerId == user.Id).ToList();
             ViewBag.Accounts = accounts;
-            ViewBag.User = user;
             return View();
         }
 
@@ -37,6 +36,7 @@ namespace OLXWebApp.Controllers
             User user = db.User.Where(u => u.Login == User.Identity.Name).FirstOrDefault();
             var accounts = db.OLXAccount.Where(a => a.UserOwnerId == user.Id).ToList();
             ViewBag.Accounts = accounts;
+            ViewBag.User = user;
             return View();
         }
 

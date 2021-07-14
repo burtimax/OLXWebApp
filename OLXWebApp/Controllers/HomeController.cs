@@ -27,6 +27,10 @@ namespace OLXWebApp.Controllers
             {
                 return RedirectToAction("Manager", "Accounts");
             }
+            else
+            {
+                return RedirectToAction("Accounts", "User");
+            }
             return View();
         }
 

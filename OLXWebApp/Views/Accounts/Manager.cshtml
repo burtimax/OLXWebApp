@@ -5,40 +5,86 @@
     ViewData["PageTitle"] = "Управление аккаунтами";
 }
 
-<div>
-    <form asp-action="AddAccount" asp-controller="Accounts" asp-anti-forgery="true">
-        <div class="validation" asp-validation-summary="ModelOnly"></div>
-        <div class="container">
-            <div class="row">
-                <div class="form-group col-4">
-                    <input class="form-control" type="text" asp-for="Login" placeholder="Login" />
-                    <span asp-validation-for="Login" />
-                </div>
-                <div class="form-group col-4">
-                    <input class="form-control" asp-for="Password" placeholder="Password" />
-                    <span asp-validation-for="Password" />
-                </div>
-                <div class="form-group col-4">
-                    <input type="submit" value="Добавить аккаунт" class="btn btn-primary" />
-                </div>
-            </div>
-        </div>
-    </form>
-</div>
+<main class="home_main">
 
-
-<div class="accounts-list container mt-3 mb-5">
-    @foreach (var user in ViewBag.Users)
-    {
-    <div class="account-list-item shadow m-1 p-3 border border-primary rounded row">
-        <div class="list-item-text col"><span>Login: </span>@user.Login</div>
-        <div class="list-item-text col"><span>Password: </span>@user.Password</div>
-        <a class="list-item-delete" href="/Accounts/DeleteAccount?id=@user.Id" id="account-@user.Id"></a>
-    </div>
-    }
-    
-</div>
+    <!--<section class="home_main">-->
+    <header class="nav">
+        <section class="connect_account">
+            <p>Подключено 5 аккаунтов</p>
+            <img alt="human" src="~/src/assets/images/icon_human.png" class="icon_human" />
+        </section>
+        <img alt="logo" src="~/src/assets/images/LOGO.png" class="settings_logo" />
+        <section class="icons">
+            <img alt="home" src="~/src/assets/images/home.png" class="icon" />
+            <img alt="settings" src="~/src/assets/images/settings.png" class="icon" />
+            <img alt="message" src="~/src/assets/images/message.png" class="icon_message" />
+            <img alt="exit" src="~/src/assets/images/exit.png" class="icon_exit" />
+        </section>
+    </header>
 
 
 
+    <section class="accounts">
+        <section class="table_box">
+            <form asp-action="AddAccount" asp-controller="Accounts" asp-anti-forgery="true">
+                <div class="validation" asp-validation-summary="ModelOnly"></div>
+                <table class="table">
+                    <tr>
+                        <th>
+                            <input class="enter_inputs" type="text" asp-for="Login" placeholder="Login"/>
+                            <span asp-validation-for="Login"/>
+                        </th>
+                        
+                        <th>
+                            <input class="enter_inputs" asp-for="Password" placeholder="Password" />
+                            <span asp-validation-for="Password" />
+                        </th>
+                        <th>
+                            <input type="submit" value="Добавить аккаунт" class="home_add_btn" />
+                        </th>
+                    </tr>
+                </table>
+            </form>
+        </section>
+        <section class="table_box">
+            <p class="connected_acc">подключены аккаунты</p>
+            <table class="table color_white">
+                <tr>
+                    <th class="log_in_title">Логин</th>
+                    <th>Пароль</th>
+                    
+                </tr>
+                @foreach (var user in ViewBag.Users)
+                {
+                    <tr>
+                        <td>
+                            <label>
+                                <input type="checkbox" />
+                            </label>
+                            @user.Login
+                        </td>
+                        <td>
+                            @user.Password
+                        </td>
+                        
+                    </tr>
+                }
+            </table>
+        </section>
+    </section>
+    <footer>
+        <img src="~/src/assets/images/LOGO.png" alt="logo" class="footer_logo" />
+        <section class="footer_text">
+            <p>Настройки</p>
+            <p>Сообщение</p>
+            <p>Добавить акаунт</p>
+            <p>Загрузить объявления</p>
+        </section>
+        <section class="footer_icons">
+            <img src="~/src/assets/images/facebook.png" alt="facebook" class="footer_icon_size" />
+            <img src="~/src/assets/images/twitter.png" alt="twitter" class="footer_icon_size" />
+            <img src="~/src/assets/images/telegram.png" alt="telegram" class="footer_icon_size" />
+        </section>
+    </footer>
+</main>
 
