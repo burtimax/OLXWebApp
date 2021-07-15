@@ -160,3 +160,5 @@ D:\Programming\VisualStudioProjects\ASP.NET Core\OLXProject\OLXWebApp\OLXWebApp\
 D:\Programming\VisualStudioProjects\ASP.NET Core\OLXProject\OLXWebApp\OLXWebApp\obj\Debug\net5.0\OLXWebApp.pdb
 D:\Programming\VisualStudioProjects\ASP.NET Core\OLXProject\OLXWebApp\OLXWebApp\obj\Debug\net5.0\OLXWebApp.genruntimeconfig.cache
 D:\Programming\VisualStudioProjects\ASP.NET Core\OLXProject\OLXWebApp\OLXWebApp\obj\Debug\net5.0\Razor\Views\Accounts\Manager - Copy.cshtml.g.cs
+D:\Programming\VisualStudioProjects\ASP.NET Core\OLXProject\OLXWebApp\OLXWebApp\bin\Debug\net5.0\ApiOlx.dll
+D:\Programming\VisualStudioProjects\ASP.NET Core\OLXProject\OLXWebApp\OLXWebApp\bin\Debug\net5.0\ApiOlx.pdb

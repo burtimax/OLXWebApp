@@ -19,4 +19,10 @@
     <Folder Include="wwwroot\src\css\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Reference Include="ApiOlx">
+      <HintPath>..\..\ApiOlx\bin\Debug\net5.0\ApiOlx.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>

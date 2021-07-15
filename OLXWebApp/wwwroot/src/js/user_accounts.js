@@ -183,3 +183,12 @@ $newUserForm.submit(function (event) {
     let result = await response.json();
 });*/
 
+let $icon_city =$('.category_input');
+
+$icon_city.bind('click', async function (event) {
+    let url = 'https://localhost:44379/User/GetCategories'
+    const response = await fetch(url, {
+        method: "POST"
+    }).then(r => console.log(JSON.stringify(r)));
+});
+

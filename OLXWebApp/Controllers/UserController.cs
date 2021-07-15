@@ -2,11 +2,16 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Threading.Tasks;
+using ApiOlx.Classes.Models;
+using ApiOlx.Classes.Models.Categories;
 using ExcelDataReader;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using OLXWebApp.Database.Context;
 using OLXWebApp.Database.DbModels;
 using OLXWebApp.Models;
@@ -16,6 +21,14 @@ namespace OLXWebApp.Controllers
     [Authorize]
     public class UserController : Controller
     {
+       
+        public static string DEV_URL = "https://developer.olx.ua";
+        public static string BASE_URL = "https://www.olx.ua";
+        private string GET_CATEGORIES = "/api/partner/categories?access_token=9adc731d600281b635d6072d8fda9af87f0ee5f7&expires_in=15685&token_type=bearer&scope=v2 read write&refresh_token=7f5f7cd09109bbae8c496c0144d64f4faecdc9d1";
+        private string GET_ATTRIBUTES = "/attributes";
+        private string GET_CITIES = "/api/partner/cities";
+
+
         private ApplicationContext db;
 
         public UserController(ApplicationContext db)
@@ -38,6 +51,23 @@ namespace OLXWebApp.Controllers
             ViewBag.Accounts = accounts;
             ViewBag.User = user;
             return View();
+        }
+
+        public async Task<Categories> GetCategories(AOuthRequest paramsApi)
+        {
+            HttpClient client = new HttpClient(); //GetHttpClient();
+            client.BaseAddress = new Uri(BASE_URL);
+            HttpRequestMessage requestCategorius = new HttpRequestMessage(HttpMethod.Get, GET_CATEGORIES);
+            requestCategorius.Headers.Add("Version", $"Version: 2.0");
+            requestCategorius.Headers.Authorization = AuthenticationHeaderValue.Parse($"Bearer 9adc731d600281b635d6072d8fda9af87f0ee5f7");
+            var responseCategorius = await client.SendAsync(requestCategorius);
+            if (responseCategorius.IsSuccessStatusCode)
+            {
+                var jsonContent = await responseCategorius.Content.ReadAsStringAsync();
+                var objectCategory = JsonConvert.DeserializeObject<Categories>(jsonContent);
+                return objectCategory;
+            }
+            return null;
         }
 
         public IActionResult AddOLXAccount(OLXAccountModel account)
